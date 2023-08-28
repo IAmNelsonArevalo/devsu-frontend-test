@@ -1,0 +1,30 @@
+name: Angular CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - staging
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Build Tests
+        run: npm run test
+
+      - name: Check for compilations errors
+        run: npm run lint
