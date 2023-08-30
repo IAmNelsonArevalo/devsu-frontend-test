@@ -1,5 +1,9 @@
 <div class="home-component">
   <div class="container">
-    Hola
+    <div class="top-table">
+      <input type="text" (input)="filterProducts($event)" class="search" placeholder="Search...">
+      <button (click)="handleGoToCreate()" class="add-button">Agregar</button>
+    </div>
+    <app-table [headings]="headings" [products]="products"></app-table>
   </div>
 </div>

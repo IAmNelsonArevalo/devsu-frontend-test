@@ -1,0 +1,13 @@
+<div class="container">
+  <label></label>
+  <input
+    type="date"
+    id="date"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+    [ngModelOptions]="{ standalone: true }"
+  />
+</div>
+
