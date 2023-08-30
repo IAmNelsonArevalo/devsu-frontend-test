@@ -1,8 +1,9 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import {HomeComponent} from "./screens/home/home.component";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('AppComponent', () => {
+import { HomeComponent } from './home.component';
+import {HeaderComponent} from "../../components/header/header.component";
+
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
@@ -17,6 +18,6 @@ describe('AppComponent', () => {
   });
 
   it("Should create the component", () => {
-    expect(component).toBeTruthy();
+      expect(component).toBeTruthy();
   });
 });
