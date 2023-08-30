@@ -1,0 +1,5 @@
+@mixin inputFocus {
+  &:focus, &:focus-visible, &:focus-within {
+    outline: none;
+  }
+}

@@ -1,0 +1,77 @@
+<div class="container">
+  <form [formGroup]="formCreate" class="form-container">
+    <div class="card-header">
+      <h1>Formulario de registro</h1>
+    </div>
+    <div class="card-content">
+      <div class="input-group">
+        <label>ID</label>
+        <input
+          type="text"
+          name="id"
+          formControlName="id"
+          [ngClass]="{error: idError !== '', 'form-input': true}"
+        />
+        <small class="error-text" *ngIf="idError === 'required'">ID no valido!</small>
+        <small class="error-text" *ngIf="idError === 'minlength'">El Id no puede tener menos de 3 caracteres</small>
+        <small class="error-text" *ngIf="idError === 'maxlength'">El ID no puede tener mas de 10 caracteres</small>
+      </div>
+      <div class="input-group">
+        <label>Nombre</label>
+        <input
+          type="text"
+          formControlName="name"
+          [ngClass]="{error: nameError !== '', 'form-input': true}"
+        />
+        <small class="error-text" *ngIf="nameError === 'required'">campo requerido!</small>
+        <small class="error-text" *ngIf="nameError === 'minlength'">La descripcion requiere un minimo de 10 caracteres</small>
+        <small class="error-text" *ngIf="nameError === 'maxlength'">La descripcion require maximo 200 caracteres</small>
+      </div>
+      <div class="input-group">
+        <label>Descripcion</label>
+        <input
+          type="text"
+          formControlName="description"
+          [ngClass]="{error: descriptionError !== '', 'form-input': true}"
+        />
+        <small class="error-text" *ngIf="descriptionError === 'required'">campo requerido!</small>
+        <small class="error-text" *ngIf="descriptionError === 'minlength'">La descripcion requiere un minimo de 10 caracteres</small>
+        <small class="error-text" *ngIf="descriptionError === 'maxlength'">La descripcion require maximo 200 caracteres</small>
+      </div>
+      <div class="input-group">
+        <label>Logo</label>
+        <input
+          type="text"
+          formControlName="logo"
+          [ngClass]="{error: logoError !== '', 'form-input': true}"
+        />
+        <small class="error-text" *ngIf="logoError === 'required'">campo requerido!</small>
+      </div>
+      <div class="input-group">
+        <label>Fecha Liberacion</label>
+        <input
+          type="date"
+          formControlName="date_release"
+          (change)="handleChangeDate()"
+          [ngClass]="{error: dateError !== '', 'form-input': true}"
+        />
+        <small class="error-text" *ngIf="dateError === 'required'">fecha requerida!</small>
+        <small class="error-text" *ngIf="dateError === 'fechaInvalida'">Fecha invalida</small>
+        <small class="error-text" *ngIf="dateError === 'fechaMenorActual'">La fecha de liberacion debe ser mayor o igual a la actual</small>
+      </div>
+      <div class="input-group">
+        <label class="disable-label">Fecha Revision</label>
+        <input
+          type="text"
+          name="date_revision"
+          formControlName="date_revision"
+          placeholder="dd/mm/aaaa"
+        />
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="reset" (click)="resetForm()">Reiniciar</button>
+      <button class="sent" [disabled]="!validateForm()" (click)="handleValidateForm()">Enviar</button>
+    </div>
+  </form>
+</div>

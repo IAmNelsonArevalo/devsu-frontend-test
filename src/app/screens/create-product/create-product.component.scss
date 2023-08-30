@@ -1,0 +1,112 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins/mixins";
+
+.form-container {
+  @include bg($white);
+  box-shadow: $shadow-md;
+  padding: 10px 0 40px;
+  max-width: 800px;
+  margin: 40px auto 0;
+
+  .card-header {
+    padding-bottom: 0;
+    border-bottom: 1px solid $black;
+
+    h1 {
+      font-size: 30px;
+      @include robotoFamily;
+      color: $black;
+      text-align: center;
+    }
+  }
+
+  .card-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    .input-group {
+      display: block;
+
+      label {
+        width: calc(100% - 40px);
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      input {
+        display: block;
+        width: calc(100% - 40px);
+        border-radius: 5px;
+      }
+    }
+
+    .disable-label {
+      color: #d3d3d3;
+    }
+
+    input[type="date"], input {
+      height: 45px;
+      border: 1px solid #d3d3d3;
+      @include robotoFamily;
+      padding: 0 20px;
+
+      @include inputFocus;
+    }
+
+    input[disabled] {
+      @include bg(#d3d3d3);
+    }
+  }
+
+  .buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+
+    .reset {
+      @include bg(#e6e9f2);
+      color: #0f265c;
+      font-weight: 700;
+      box-shadow: $shadow-md;
+      border: none;
+      height: 45px;
+      width: 90px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .sent {
+      @include bg(#f9de4b);
+      box-shadow: $shadow-md;
+      border: none;
+      height: 45px;
+      width: 90px;
+      border-radius: 5px;
+      color: #0f265c;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.error-text {
+  color: #d50000;
+  font-weight: 700;
+}
+
+.error {
+  border: 2px solid #d50000 !important;
+}

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  handleGetHeaderType(): boolean {
+    return window.location.pathname !== "/";
+  }
 }
