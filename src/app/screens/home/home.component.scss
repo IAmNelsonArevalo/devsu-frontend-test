@@ -1,0 +1,55 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins/mixins";
+
+.home-component {
+  margin-top: 30px;
+
+  .top-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .search {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid #eeeeee;
+      height: 30px;
+      color: $black;
+      padding: 5px 10px;
+      outline: none;
+      @include robotoFamily;
+
+      @include inputFocus;
+
+      @media (max-width: 500px) {
+        max-width: 100%;
+      }
+    }
+
+    .add-button {
+      @include robotoFamily;
+      @include bg($yellow);
+      border: none;
+      height: 45px;
+      border-radius: 5px;
+      width: 100px;
+      font-weight: bold;
+      box-shadow: $shadow-md;
+      cursor: pointer;
+
+      @media (max-width: 500px) {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-inline: 0;
+      }
+   }
+
+    @media (max-width: 500px) {
+      @include flexDirection($direction: column);
+    }
+  }
+}
